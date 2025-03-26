@@ -1,3 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 html {
-    background-color: white;
+    background-color: #16181c;
+    color: #ffffff;
+    font-family: 'Rubik';
+}
+
+main .container {
+    margin: 0px auto;
+    padding-right: 2em;
+    padding-left: 2em;
+    max-width: 1140px;
+}
+
+main .container .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+main .container .header .main-nav ul {
+    display: flex;
+    gap: 10px;
+}
+
+main .container .header .main-nav ul li {
+    list-style: none;
+}
+
+main .container .header .main-nav ul li a {
+    text-decoration: none;
+    color: #cbd4dc;
+
+    &:hover {
+        color: #ffffff;
+    }
 }
