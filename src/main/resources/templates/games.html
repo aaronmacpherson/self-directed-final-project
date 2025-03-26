@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments/header :: header}">...</div>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="header">
+                <h1>Game Shelf</h1>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a class="nav-active" href="/games">Games</a></li>
+                        <li><a href="#">Consoles</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div th:switch="${games}">
+                <a class="button" href="#"><i class="fa fa-plus" aria-hidden="true"></i> Add game</a>
+                <h2 th:case="null">No Games added yet...</h2>
+                <div th:case="*">
+                    <div class="game-card" th:each="game : ${games}">
+                        <p th:text="${game.title}"></p>
+                        <p th:text="${game.notes}"></p>
+                        <p th:text="${game.status.name}"></p>
+                        <p th:text="${game.priority.name}"></p>
+                        <p th:text="${game.platform.name}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
