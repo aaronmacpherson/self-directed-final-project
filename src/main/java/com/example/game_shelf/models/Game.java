@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Game {
@@ -17,21 +19,22 @@ public class Game {
     @NotBlank(message = "Title is mandatory")
     private String title;
 
+    @Size(max = 200, message = "Notes must not exceed 200 characters")
     private String notes;
 
     @ManyToOne
     @JoinColumn(name = "status_id")
-    @NotBlank(message = "Status is mandatory")
+    @NotNull(message = "Status is mandatory")
     private Status status;
 
     @ManyToOne
     @JoinColumn(name = "priority_id")
-    @NotBlank(message = "Priority is mandatory")
+    @NotNull(message = "Priority is mandatory")
     private Priority priority;
 
     @ManyToOne
     @JoinColumn(name = "platform_id")
-    @NotBlank(message = "Platform is mandatory")
+    @NotNull(message = "Platform is mandatory")
     private Platform platform;
 
     public long getId() {
