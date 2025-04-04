@@ -30,6 +30,7 @@ input:focus, textarea:focus {
 .button {
     display: block;
     width: 6em;
+    height: fit-content;
     text-align: center;
     text-decoration: none;
     color: #ffffff;
@@ -43,6 +44,18 @@ input:focus, textarea:focus {
         cursor: pointer;
         background-color: #fc6399;
     }
+}
+
+.button-general {
+    background-color: #4a5e8d;
+
+    &:hover {
+        background-color: #30394c
+    }
+}
+
+.button-danger {
+    background-color: #ff0000;
 }
 
 main .container .header {
@@ -81,10 +94,17 @@ main .container .header .main-nav ul li .nav-active {
 }
 
 main .container div .game-card {
+    display: flex;
+    justify-content: space-between;
     border: 1px solid #30394c;
     margin-bottom: 0.5em;
     padding: 1em;
     border-radius: 0.5em;
+}
+
+main .container div .game-card .game-card-actions {
+    display: flex;
+    gap: 5px;
 }
 
 main .container div .game-form > div {

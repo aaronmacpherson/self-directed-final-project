@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -16,7 +17,6 @@ import com.example.game_shelf.repositories.PriorityRepository;
 import com.example.game_shelf.repositories.StatusRepository;
 
 import jakarta.validation.Valid;
-
 
 @Controller
 public class GameController {
@@ -69,5 +69,30 @@ public class GameController {
         gameRepository.save(game);
         return "redirect:/games";
     }
-    
+
+    @GetMapping("/games/edit/{id}")
+    public String editGames(@PathVariable long id, Model model) {
+        if (!model.containsAttribute("game")) {
+            Game game = gameRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid game id: " + id));
+            model.addAttribute("game", game);
+        }
+        
+        model.addAttribute("platforms", platformRepository.findAll());
+        model.addAttribute("priority", priorityRepository.findAll());
+        model.addAttribute("status", statusRepository.findAll());
+
+        return "editGame";
+    }
+
+    @PostMapping("/games/edit/{id}")
+    public String editGames(@PathVariable long id, @Valid Game game, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.game", result);
+            redirectAttributes.addFlashAttribute("game", game);
+            return "redirect:/games/edit/{id}";
+        }
+
+        gameRepository.save(game);
+        return "redirect:/games";
+    }
 }
