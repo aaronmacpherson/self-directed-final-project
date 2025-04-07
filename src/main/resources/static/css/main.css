@@ -38,7 +38,6 @@ input:focus, textarea:focus {
     border: none;
     border-radius: 0.5em;
     padding: 0.5em;
-    margin-bottom: 2em;
 
     &:hover {
         cursor: pointer;
@@ -93,13 +92,23 @@ main .container .header .main-nav ul li .nav-active {
     }
 }
 
+main .container div.content > a {
+    margin-bottom: 2em;
+}
+
 main .container div .game-card {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 1px solid #30394c;
     margin-bottom: 0.5em;
     padding: 1em;
     border-radius: 0.5em;
+}
+
+main .container div .game-card .title {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 main .container div .game-card .game-card-actions {

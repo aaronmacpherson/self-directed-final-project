@@ -15,17 +15,13 @@
                     </ul>
                 </nav>
             </div>
-            <div th:switch="${games}">
+            <div class="content" th:switch="${games}">
                 <a class="button" href="/games/add"><i class="fa fa-plus" aria-hidden="true"></i> Add game</a>
                 <h2 th:case="null">No Games added yet...</h2>
                 <div th:case="*">
                     <div class="game-card" th:each="game : ${games}">
                         <div>
-                            <p th:text="${game.title}"></p>
-                            <p th:text="${game.notes}"></p>
-                            <p th:text="${game.status.name}"></p>
-                            <p th:text="${game.priority.name}"></p>
-                            <p th:text="${game.platform.name}"></p>
+                            <p class="title" th:text="${game.title}"></p>
                         </div>
                         <div class="game-card-actions">
                             <a class="button button-general" th:href="@{/games/edit/{id}(id=${game.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>

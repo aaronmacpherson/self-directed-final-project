@@ -40,7 +40,7 @@ public class GameController {
     
     @GetMapping("/games")
     public String games(Model model) {
-        model.addAttribute("games", gameRepository.findAll());
+        model.addAttribute("games", gameRepository.findAllByOrderByIdDesc());
         
         return "games";
     }
