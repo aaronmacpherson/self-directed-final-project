@@ -37,11 +37,11 @@ public class GameController {
     public RedirectView index() {
         return new RedirectView("/games");
     }
-    
+
     @GetMapping("/games")
     public String games(Model model) {
         model.addAttribute("games", gameRepository.findAllByOrderByIdDesc());
-        
+
         return "games";
     }
 
@@ -54,7 +54,7 @@ public class GameController {
         model.addAttribute("platforms", platformRepository.findAll());
         model.addAttribute("priority", priorityRepository.findAll());
         model.addAttribute("status", statusRepository.findAll());
-        
+
         return "addGame";
     }
 
@@ -73,10 +73,11 @@ public class GameController {
     @GetMapping("/games/edit/{id}")
     public String editGames(@PathVariable long id, Model model) {
         if (!model.containsAttribute("game")) {
-            Game game = gameRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid game id: " + id));
+            Game game = gameRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid game id: " + id));
             model.addAttribute("game", game);
         }
-        
+
         model.addAttribute("platforms", platformRepository.findAll());
         model.addAttribute("priority", priorityRepository.findAll());
         model.addAttribute("status", statusRepository.findAll());
@@ -85,7 +86,8 @@ public class GameController {
     }
 
     @PostMapping("/games/edit/{id}")
-    public String editGames(@PathVariable long id, @Valid Game game, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+    public String editGames(@PathVariable long id, @Valid Game game, BindingResult result, Model model,
+            RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.game", result);
             redirectAttributes.addFlashAttribute("game", game);
@@ -93,6 +95,14 @@ public class GameController {
         }
 
         gameRepository.save(game);
+        return "redirect:/games";
+    }
+
+    @GetMapping("/games/delete/{id}")
+    public String deleteGames(@PathVariable("id") long id, Model model) {
+        Game game = gameRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid game Id:" + id));
+        gameRepository.delete(game);
         return "redirect:/games";
     }
 }
