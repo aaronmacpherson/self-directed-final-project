@@ -32,7 +32,7 @@
             </div>
             <div class="content">
                 <div class="content-header">Priorities</div>
-                <a class="button" href="/priorites/add"><i class="fa fa-plus" aria-hidden="true"></i> Add priority</a>
+                <a class="button" href="/priorities/add"><i class="fa fa-plus" aria-hidden="true"></i> Add priority</a>
                 <h2 th:if="${#lists.isEmpty(priorities)}">No Priorities added yet...</h2>
                 <div th:if="${!#lists.isEmpty(priorities)}">
                     <div class="game-card" th:each="priority : ${priorities}">
@@ -40,7 +40,7 @@
                             <p class="name" th:text="${priority.name}"></p>
                         </div>
                         <div class="game-card-actions">
-                            <a class="button button-general" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                            <a class="button button-general" th:href="@{/priorities/edit/{id}(id=${priority.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                         </div>
                     </div>
                 </div>
