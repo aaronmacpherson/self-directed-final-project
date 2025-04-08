@@ -17,8 +17,10 @@ INSERT INTO `priority` (id, name) VALUES
 
 INSERT INTO `platform` (id, name) VALUES 
 (1, "PC"),
-(2, "Nintendo Switch");
+(2, "Nintendo Switch"),
+(3, "Playstation 5");
 
 INSERT INTO `game` (id, title, notes, status_id, priority_id, platform_id) VALUES 
 (1, "Monster Hunter Wilds", "Pretty good game so far", 3, 1, 1),
-(2, "Xenoblade Chronicles X Definitive Edition", "The exploration is really fun!", 2, 1, 2);
+(2, "The Legend of Zelda: Tears of the Kingdom", "", 3, 4, 2),
+(3, "Final Fantasy VII Rebirth", "Amazing graphics!", 3, 4, 3);
