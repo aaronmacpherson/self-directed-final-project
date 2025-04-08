@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Platform {
@@ -13,6 +14,7 @@ public class Platform {
     private long id;
 
     @NotBlank(message = "Name is mandatory")
+    @Size(max = 25, message = "Name must not exceed 25 characters")
     private String name;
 
     public long getId() {
