@@ -15,7 +15,10 @@
                     </ul>
                 </nav>
             </div>
-            <div class="content">
+            <div class="filters">
+                Filters: <button class="filter-button" id="platform-filter">Platforms</button><button class="filter-button" id="priority-filter">Priorities</button><button class="filter-button" id="statuses-filter">Statuses</button>
+            </div>
+            <div id="platforms" class="content">
                 <div class="content-header">Platforms</div>
                 <a class="button" href="/platforms/add"><i class="fa fa-plus" aria-hidden="true"></i> Add platform</a>
                 <h2 th:if="${#lists.isEmpty(platforms)}">No Platforms added yet...</h2>
@@ -30,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content">
+            <div id="priorities" class="content">
                 <div class="content-header">Priorities</div>
                 <a class="button" href="/priorities/add"><i class="fa fa-plus" aria-hidden="true"></i> Add priority</a>
                 <h2 th:if="${#lists.isEmpty(priorities)}">No Priorities added yet...</h2>
@@ -45,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content">
+            <div id="statuses" class="content">
                 <div class="content-header">Statuses</div>
                 <a class="button" href="/status/add"><i class="fa fa-plus" aria-hidden="true"></i> Add status</a>
                 <h2 th:if="${#lists.isEmpty(statuses)}">No Statuses added yet...</h2>
