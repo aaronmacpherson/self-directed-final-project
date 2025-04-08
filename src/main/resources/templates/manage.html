@@ -25,7 +25,7 @@
                             <p class="name" th:text="${platform.name}"></p>
                         </div>
                         <div class="game-card-actions">
-                            <a class="button button-general" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                            <a class="button button-general" th:href="@{/platforms/edit/{id}(id=${platform.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                         </div>
                     </div>
                 </div>
