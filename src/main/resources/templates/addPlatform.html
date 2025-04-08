@@ -17,6 +17,7 @@
             </div>
             <div>
                 <form class="game-form" action="#" th:action="@{/platforms/add}" th:object="${platform}" method="POST">
+                    <div class="form-header">Add Platform</div>
                     <div>
                         <label for="name">Name</label>
                         <input type="text" th:field="*{name}" id="name">
