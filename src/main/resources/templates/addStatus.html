@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments/header :: header}">...</div>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="header">
+                <h1><a href="/games">Game Shelf</a></h1>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/games">Games</a></li>
+                        <li><a href="/manage">Manage</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <form class="game-form" action="#" th:action="@{/status/add}" th:object="${status}" method="POST">
+                    <div class="form-header">Add Status</div>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" th:field="*{name}" id="name">
+                        <span class="form-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                    </div>
+                    <div>
+                        <button type="submit" class="button"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
