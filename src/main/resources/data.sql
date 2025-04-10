@@ -23,4 +23,5 @@ INSERT INTO `platform` (id, name) VALUES
 INSERT INTO `game` (id, title, notes, status_id, priority_id, platform_id, achievements_earned, achievements_total) VALUES 
 (1, "Monster Hunter Wilds", "Pretty good game so far", 3, 1, 1, 33, 50),
 (2, "The Legend of Zelda: Tears of the Kingdom", "", 3, 4, 2, 0, 0),
-(3, "Final Fantasy VII Rebirth", "Amazing graphics!", 3, 4, 3, 7, 61);
+(3, "Final Fantasy VII Rebirth", "Amazing graphics!", 3, 4, 3, 38, 63),
+(4, "Elden Ring", "", 4, 4, 1, 42, 42);
