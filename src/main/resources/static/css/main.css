@@ -97,6 +97,7 @@ main .container .header {
 
 main .container .header .main-nav ul {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
@@ -192,7 +193,7 @@ main .container div .game-form .form-header {
     margin-bottom: 1em;
 }
 
-main .container div .game-form > div input[type="text"] {
+main .container div .game-form > div input[type="text"], input[type="password"] {
     font-family: "Rubik", "arial", "sans-serif";
     background-color: #30394c;
     color: #ffffff;

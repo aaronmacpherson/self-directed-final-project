@@ -12,20 +12,23 @@
                     <ul>
                         <li><a href="/games">Games</a></li>
                         <li><a href="/manage">Manage</a></li>
-                        <li sec:authorize="isAuthenticated()"><form th:action="@{/logout}" method="post"><button class="button button-general">Logout</button></form></li>
                     </ul>
                 </nav>
             </div>
             <div>
-                <form class="game-form" action="#" th:action="@{/status/add}" th:object="${status}" method="POST">
-                    <div class="form-header">Add Status</div>
+                <form class="game-form" action="#" th:action="@{/login}" method="POST">
+                    <div class="form-header">Login</div>
                     <div>
-                        <label for="name">Name</label>
-                        <input type="text" th:field="*{name}" id="name">
-                        <span class="form-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" />
                     </div>
                     <div>
-                        <button type="submit" class="button"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" />
+                        <span class="form-error" th:if="${param.error}">Invalid username or password</span>
+                    </div>
+                    <div>
+                        <button type="submit" class="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
                     </div>
                 </form>
             </div>

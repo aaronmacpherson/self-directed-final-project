@@ -12,6 +12,7 @@
                     <ul>
                         <li><a href="/games">Games</a></li>
                         <li><a class="nav-active" href="/manage">Manage</a></li>
+                        <li sec:authorize="isAuthenticated()"><form th:action="@{/logout}" method="post"><button class="button button-general">Logout</button></form></li>
                     </ul>
                 </nav>
             </div>
