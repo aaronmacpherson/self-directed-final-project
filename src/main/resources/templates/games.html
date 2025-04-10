@@ -24,6 +24,11 @@
                     <div class="game-card" th:each="game : ${games}">
                         <div>
                             <div class="title" th:text="${game.title}"></div>
+                            <div class="tags-container">
+                                <span class="tag" th:text="${'Status | ' + game.status.name}"></span>
+                                <span class="tag" th:text="${'Priority | ' + game.priority.name}"></span>
+                                <span class="tag" th:text="${'Platform | ' + game.platform.name}"></span>
+                            </div>
                             <div class="progress-container" th:if="${game.achievementsTotal != 0}">
                                 <i class="fa fa-trophy" aria-hidden="true"></i>
                                 <progress class="progress" th:value="${game.calculateAchievementPercent()}" max="100"></progress>

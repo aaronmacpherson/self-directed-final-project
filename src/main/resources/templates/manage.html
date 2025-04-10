@@ -26,7 +26,7 @@
                 <div th:if="${!#lists.isEmpty(platforms)}">
                     <div class="game-card" th:each="platform : ${platforms}">
                         <div>
-                            <p class="name" th:text="${platform.name}"></p>
+                            <p class="title" th:text="${platform.name}"></p>
                         </div>
                         <div class="game-card-actions">
                             <a class="button button-general" th:href="@{/platforms/edit/{id}(id=${platform.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
@@ -41,7 +41,7 @@
                 <div th:if="${!#lists.isEmpty(priorities)}">
                     <div class="game-card" th:each="priority : ${priorities}">
                         <div>
-                            <p class="name" th:text="${priority.name}"></p>
+                            <p class="title" th:text="${priority.name}"></p>
                         </div>
                         <div class="game-card-actions">
                             <a class="button button-general" th:href="@{/priorities/edit/{id}(id=${priority.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
@@ -56,7 +56,7 @@
                 <div th:if="${!#lists.isEmpty(statuses)}">
                     <div class="game-card" th:each="status : ${statuses}">
                         <div>
-                            <p class="name" th:text="${status.name}"></p>
+                            <p class="title" th:text="${status.name}"></p>
                         </div>
                         <div class="game-card-actions">
                             <a class="button button-general" th:href="@{/status/edit/{id}(id=${status.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
