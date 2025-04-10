@@ -122,6 +122,7 @@ main .container .header .main-nav ul li {
 
 main .container .header .main-nav ul li a {
     color: #cbd4dc;
+    text-wrap: nowrap;
 
     &:hover {
         color: #ffffff;
@@ -292,6 +293,10 @@ main .container div .game-form > div .form-error {
         margin-bottom: 0.5em;
         padding: 1em;
         border-radius: 0.5em;
+    }
+
+    main .container div .game-form .achievement-container {
+        flex-direction: column;
     }
 
     main .container div .game-card .game-card-actions {
