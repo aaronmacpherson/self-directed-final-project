@@ -38,7 +38,8 @@ public class StatusController {
         }
 
         statusRepository.save(status);
-        return "redirect:/manage";
+        redirectAttributes.addFlashAttribute("message", status.getName() + " has been added successfully!");
+        return "redirect:/status/add";
     }
 
     @GetMapping("/status/edit/{id}")
@@ -62,6 +63,7 @@ public class StatusController {
         }
 
         statusRepository.save(status);
-        return "redirect:/manage";
+        redirectAttributes.addFlashAttribute("message", status.getName() + " has been edited successfully!");
+        return "redirect:/status/edit/{id}";
     }
 }

@@ -19,6 +19,7 @@
             <div>
                 <form class="game-form" action="#" th:action="@{/status/edit/{id}(id=${status.id})}" th:object="${status}" method="POST">
                     <div class="form-header">Edit Status</div>
+                    <div class="success-message" th:if="${message}" th:text="${message}"></div>
                     <div>
                         <label for="name">Name</label>
                         <input type="text" th:field="*{name}" id="name">

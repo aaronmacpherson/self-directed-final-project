@@ -38,7 +38,8 @@ public class PlatformController {
         }
 
         platformRepository.save(platform);
-        return "redirect:/manage";
+        redirectAttributes.addFlashAttribute("message", platform.getName() + " has been added successfully!");
+        return "redirect:/platforms/add";
     }
 
     @GetMapping("/platforms/edit/{id}")
@@ -62,6 +63,7 @@ public class PlatformController {
         }
 
         platformRepository.save(platform);
-        return "redirect:/manage";
+        redirectAttributes.addFlashAttribute("message", platform.getName() + " has been edited successfully!");
+        return "redirect:/platforms/edit/{id}";
     }
 }

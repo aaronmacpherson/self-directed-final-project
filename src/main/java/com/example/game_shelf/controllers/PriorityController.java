@@ -38,7 +38,8 @@ public class PriorityController {
         }
 
         priorityRepository.save(priority);
-        return "redirect:/manage";
+        redirectAttributes.addFlashAttribute("message", priority.getName() + " has been added successfully!");
+        return "redirect:/priorities/add";
     }
 
     @GetMapping("/priorities/edit/{id}")
@@ -62,6 +63,7 @@ public class PriorityController {
         }
 
         priorityRepository.save(priority);
-        return "redirect:/manage";
+        redirectAttributes.addFlashAttribute("message", priority.getName() + " has been edited successfully!");
+        return "redirect:/priorities/edit/{id}";
     }
 }

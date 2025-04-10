@@ -20,6 +20,7 @@
                 <a class="button" href="/games/add"><i class="fa fa-plus" aria-hidden="true"></i> Add game</a>
                 <h2 th:if="${#lists.isEmpty(games)}">No Games added yet...</h2>
                 <div th:if="${!#lists.isEmpty(games)}">
+                    <div class="success-message" th:if="${message}" th:text="${message}"></div>
                     <div class="game-card" th:each="game : ${games}">
                         <div>
                             <div class="title" th:text="${game.title}"></div>

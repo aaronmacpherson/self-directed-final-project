@@ -67,7 +67,8 @@ public class GameController {
         }
 
         gameRepository.save(game);
-        return "redirect:/games";
+        redirectAttributes.addFlashAttribute("message", game.getTitle() + " has been added successfully!");
+        return "redirect:/games/add";
     }
 
     @GetMapping("/games/edit/{id}")
@@ -95,14 +96,17 @@ public class GameController {
         }
 
         gameRepository.save(game);
-        return "redirect:/games";
+        redirectAttributes.addFlashAttribute("message", game.getTitle() + " has been edited successfully!");
+        return "redirect:/games/edit/{id}";
     }
 
     @GetMapping("/games/delete/{id}")
-    public String deleteGames(@PathVariable("id") long id, Model model) {
+    public String deleteGames(@PathVariable("id") long id, Model model, RedirectAttributes redirectAttributes) {
         Game game = gameRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid game Id:" + id));
+        
         gameRepository.delete(game);
+        redirectAttributes.addFlashAttribute("message", game.getTitle() + " has been deleted successfully!");
         return "redirect:/games";
     }
 }
