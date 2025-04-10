@@ -17,14 +17,14 @@
             </div>
             <div>
                 <form class="game-form" action="#" th:action="@{/status/edit/{id}(id=${status.id})}" th:object="${status}" method="POST">
-                    <div class="form-header">Add Status</div>
+                    <div class="form-header">Edit Status</div>
                     <div>
                         <label for="name">Name</label>
                         <input type="text" th:field="*{name}" id="name">
                         <span class="form-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                     </div>
                     <div>
-                        <button type="submit" class="button"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                        <button type="submit" class="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
                     </div>
                 </form>
             </div>
