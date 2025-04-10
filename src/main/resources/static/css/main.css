@@ -27,6 +27,14 @@ button {
     font-family: "Rubik", "arial", "sans-serif";
 }
 
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    height: 0.25rem;
+}
+
 input:focus, textarea:focus {
     outline: none;
 }
@@ -151,6 +159,24 @@ main .container div .game-card .title {
 main .container div .game-card .game-card-actions {
     display: flex;
     gap: 5px;
+}
+
+main .container div .game-card .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+main .container div .game-card .progress::-webkit-progress-bar {
+    background-color: #eeeeee;
+}
+
+main .container div .game-card .progress::-webkit-progress-value {
+    background-color: #ea377a;
+}
+
+main .container div .game-card .progress::-moz-progress-bar {
+    background-color: #ea377a;
 }
 
 main .container div .game-form > div {

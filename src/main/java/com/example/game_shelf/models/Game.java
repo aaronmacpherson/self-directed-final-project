@@ -110,4 +110,8 @@ public class Game {
     public void setAchievementsTotal(int achievementsTotal) {
         this.achievementsTotal = achievementsTotal;
     }
+
+    public double calculateAchievementPercent() {
+        return (double) this.achievementsEarned / this.achievementsTotal * 100;
+    }
 }

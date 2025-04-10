@@ -21,7 +21,11 @@
                 <div th:if="${!#lists.isEmpty(games)}">
                     <div class="game-card" th:each="game : ${games}">
                         <div>
-                            <p class="title" th:text="${game.title}"></p>
+                            <div class="title" th:text="${game.title}"></div>
+                            <div class="progress-container" th:if="${game.achievementsTotal != 0}">
+                                <i class="fa fa-trophy" aria-hidden="true"></i>
+                                <progress class="progress" th:value="${game.calculateAchievementPercent()}" max="100"></progress>
+                            </div>
                         </div>
                         <div class="game-card-actions">
                             <a class="button button-general" th:href="@{/games/edit/{id}(id=${game.id})}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
