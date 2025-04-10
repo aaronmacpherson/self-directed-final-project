@@ -190,6 +190,17 @@ main .container div .game-form > div select {
     padding: 0.5rem;
 }
 
+main .container div .game-form .achievement-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+main .container div .game-form .achievement-container > div {
+    display: flex;
+    flex-direction: column;
+}
+
 main .container div .game-form > div .form-error {
     color: #ff0000;
 }

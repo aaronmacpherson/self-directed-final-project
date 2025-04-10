@@ -53,6 +53,21 @@
                         <span class="form-error" th:if="${#fields.hasErrors('platform')}" th:errors="*{platform}"></span>
                     </div>
                     <div>
+                        <div>Achievements</div>
+                        <div class="achievement-container">
+                            <div>
+                                <label for="achievementsEarned">Earned</label>
+                                <input type="text" th:field="*{achievementsEarned}" id="achievementsEarned">
+                            </div>
+                            <div>
+                                <label for="achievementsTotal">Total</label>
+                                <input type="text" th:field="*{achievementsTotal}" id="achievementsTotal">
+                            </div>
+                        </div>
+                        <span class="form-error" th:if="${#fields.hasErrors('achievementsEarned')}" th:errors="*{achievementsEarned}"></span>
+                        <span class="form-error" th:if="${#fields.hasErrors('achievementsTotal')}" th:errors="*{achievementsTotal}"></span>
+                    </div>
+                    <div>
                         <button type="submit" class="button"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
                     </div>
                 </form>
